@@ -1,0 +1,20 @@
+# Local Terraform state and provider cache
+infrastructure/.terraform/
+infrastructure/.terraform.lock.hcl
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local generated or temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Optional: ignore local env files if added later
+.env
+.env.*
+
+# Keep the intentionally staged demo files tracked
+# Do not ignore website/staging/uploads/

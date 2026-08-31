@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staging | Patient Portal v1.2</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-inner">
+      <h1>CareBridge Patient Portal <span class="env-badge">STAGING ENVIRONMENT</span></h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="notice"><strong>System Notice:</strong> This is a staging environment. Database sync last occurred on 2026-08-15.</div>
+
+    <div class="nav">
+      <a href="/">Dashboard</a>
+      <a href="/appointments/">Appointments</a>
+      <a href="/prescriptions/">Prescriptions</a>
+      <a href="/uploads/">File Access (Debug)</a>
+    </div>
+
+    <div class="patient-summary">
+      <div><strong>Patient ID</strong>PATIENT-20481</div>
+      <div><strong>Name</strong>Synthetic Demo Profile</div>
+      <div><strong>DOB</strong>14-MAY-1979</div>
+      <div><strong>NHS No</strong>999 000 1234 (Simulated)</div>
+    </div>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Recent lab results</h2>
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Test Panel</th><th>Ordered By</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2026-08-20</td><td>Comprehensive Metabolic Panel</td><td>Dr. A. Smith</td><td><span class="status-ok">Final</span></td></tr>
+            <tr><td>2026-08-01</td><td>Lipid Profile</td><td>Dr. A. Smith</td><td><span class="status-ok">Final</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h3>Records overview</h3>
+        <p><strong>PATIENT-DEMO-XXXX</strong> active in the review queue. Records include simulated notes, historical bloodwork, and staged portal exports.</p>
+        <p><strong>SIMULATED-RECORD-XXXX:</strong> demo summary prepared for operational review and QA only.</p>
+      </section>
+    </div>
+
+    <div class="footer">
+      CareBridge Health • Staging System • 1.2.4-build99<br>
+      <a href="/uploads/">Internal Document Repository</a>
+    </div>
+  </div>
+</body>
+</html>

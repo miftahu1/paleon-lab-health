@@ -1,0 +1,6 @@
+﻿CareBridge Staging Export Dump
+==============================
+Export Job ID: EX-9921
+Status: COMPLETED
+Data: Synthetic prop data only.
+

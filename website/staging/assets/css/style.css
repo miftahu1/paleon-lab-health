@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #edf2f4;
+  color: #1d2a32;
+  line-height: 1.55;
+}
+
+* { box-sizing: border-box; }
+
+a { color: #0a66c2; }
+
+.header {
+  background: #2d4457;
+  color: #fff;
+  padding: 18px 28px;
+  border-bottom: 5px solid #1a7a8d;
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.env-badge {
+  background: #d9534f;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 30px auto;
+  padding: 0 20px 30px;
+}
+
+.notice,
+.panel,
+.table-wrap {
+  background: #fff;
+  border: 1px solid #d1d9df;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.notice {
+  padding: 16px 18px;
+  background: #fff8d8;
+  border-left: 4px solid #d6a64d;
+  margin-bottom: 20px;
+}
+
+.nav {
+  background: #f8fafb;
+  border: 1px solid #d8dee3;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.nav a {
+  margin-right: 18px;
+  color: #0a66c2;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav a:hover { text-decoration: underline; }
+
+.patient-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px 18px;
+  background: #ffffea;
+  border-left: 4px solid #f0ad4e;
+  margin-bottom: 24px;
+}
+
+.patient-summary strong {
+  display: block;
+  color: #4b5965;
+  margin-bottom: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panel h2, .panel h3 {
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #dfe5ea;
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f5f7f8;
+}
+
+.status-ok {
+  color: #1f7a3c;
+  font-weight: 700;
+}
+
+.status-pending {
+  color: #8a6d3b;
+  font-weight: 700;
+}
+
+.footer {
+  max-width: 1080px;
+  margin: 0 auto 40px;
+  padding: 18px 0 0;
+  text-align: center;
+  color: #5d6a73;
+  font-size: 12px;
+  border-top: 1px solid #dfe5ea;
+}
+
+.footer a {
+  color: #0a66c2;
+}
+
+@media (max-width: 720px) {
+  .patient-summary,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    display: block;
+  }
+
+  .nav a {
+    display: inline-block;
+    margin: 4px 12px 4px 0;
+  }
+}

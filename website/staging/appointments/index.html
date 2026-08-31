@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staging | Appointments</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-inner">
+      <h1>CareBridge Patient Portal <span class="env-badge">STAGING ENVIRONMENT</span></h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="notice"><strong>System Notice:</strong> This is a staging environment. Database sync last occurred on 2026-08-15.</div>
+
+    <div class="nav">
+      <a href="/">Dashboard</a>
+      <a href="/appointments/">Appointments</a>
+      <a href="/prescriptions/">Prescriptions</a>
+      <a href="/uploads/">File Access (Debug)</a>
+    </div>
+
+    <div class="patient-summary">
+      <div><strong>Patient ID</strong>PATIENT-20481</div>
+      <div><strong>Name</strong>Synthetic Demo Profile</div>
+      <div><strong>MRN</strong>PATIENT-DEMO-XXXX</div>
+      <div><strong>Status</strong>Review pending</div>
+    </div>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Upcoming appointments</h2>
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Time</th><th>Clinician</th><th>Department</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2026-09-12</td><td>14:30</td><td>Dr. S. Miller</td><td>Cardiology</td></tr>
+            <tr><td>2026-09-18</td><td>10:15</td><td>Dr. H. Patel</td><td>Diabetes care</td></tr>
+            <tr><td>2026-09-29</td><td>09:00</td><td>Ms. L. Graham</td><td>Physiotherapy</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h3>Clinical note</h3>
+        <p>Follow-up review scheduled after recent cardiology assessment. Prescription review requested prior to appointment.</p>
+        <p><strong>Care plan:</strong> repeat evaluation with updated blood pressure and activity trend review.</p>
+      </section>
+    </div>
+
+    <div class="footer">
+      CareBridge Health • Staging System • 1.2.4-build99<br>
+      <a href="/uploads/">Internal Document Repository</a>
+    </div>
+  </div>
+</body>
+</html>

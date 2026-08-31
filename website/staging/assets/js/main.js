@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded', () => { const current = window.location.pathname.replace(/\/+$/, '') || '/'; document.querySelectorAll('.nav a').forEach((link) => { const href = link.getAttribute('href'); if (href === current || (current === '/' && href === '/')) { link.setAttribute('aria-current', 'page'); } }); });

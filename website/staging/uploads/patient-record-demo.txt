@@ -1,0 +1,5 @@
+﻿PATIENT-DEMO-RECORD.txt
+Generated: 2026-08-31
+Type: Simulated Patient Data
+ID: PATIENT-20481
+Notes: This is synthetic trial data for rendering testing in the portal. Contains no real patient information.

@@ -1,0 +1,150 @@
+findings:
+  # A. Weak Email Security
+  - id: SITE2-001
+    category: email_security
+    target: paleon-lab-health.com
+    title: Weak SPF configuration
+    description: >
+      The domain has an SPF record ending in neutral (?all) rather than
+      a soft or hard fail (~all or -all). This is a neutral SPF policy,
+      and it does not explicitly reject or quarantine unauthorized mail.
+    severity: medium
+    claim_strength: observed
+    evidence_hint: dig TXT paleon-lab-health.com | grep"v=spf1"
+
+  - id: SITE2-002
+    category: email_security
+    target: paleon-lab-health.com
+    title: DMARC not enforced (p=none)
+    description: >
+      The DMARC record specifies p=none, meaning failing emails are
+      not rejected or quarantined.
+    severity: medium
+    claim_strength: observed
+    evidence_hint: dig TXT _dmarc.paleon-lab-health.com | grep "p=none"
+  
+  - id: SITE2-003
+    category: email_security
+    target: paleon-lab-health.com
+    title: No DKIM selector found
+    description: >
+      No common DKIM selectors were detected for the domain.
+    severity: low
+    claim_strength: observed
+    evidence_hint: >
+      Attempt to query well-known selectors (Example: dig TXT selector1._domainkey.paleon-lab-health.com) 
+
+  # B. DNS Security Weakness
+  - id: SITE2-004
+    category: dns_security
+    target: paleon-lab-health.com
+    title: NO CAA record
+    description: >
+      No Certificate Authority Authorization (CAA) record is present, allowing 
+      any CA to issue certificates for this domain.
+    severity: low
+    claim_strength: observed
+    evidence_hint: dig CAA paleon-lab-health.com
+  
+  - id: SITE2-005
+    category: dns_security
+    target: paleon-lab-health.com
+    title: DNSSEC not enabled
+    description: >
+      DNSSEC is not enabled on the zone, leaving it vulnerable to spoofing, 
+      poisoning, and other DNS-level attacks.
+    severity: low
+    claim_strength: observed
+    evidence_hint: >
+      dig DNSKEY paleon-lab-health.com
+
+  # C. Hostname-Mismatch Certificate
+  - id: SITE2-006
+    category: tls
+    target: staging.paleon-lab-health.com
+    title: TLS certificate hostname mismatch on staging
+    description: >
+      The staging subdomain presents a TLS certificate whose Common Name
+      or Subject Alternative Names do not include staging.paleon-lab-health.com.
+      It is presenting the main site's certificate.
+    severity: high
+    claim_strength: observed
+    evidence_hint: >
+      curl -vI" https://staging.paleon-lab-health.com" || echo "Expect SSL certificate problem"
+      
+  # D. Directory Listing
+  - id: SITE2-007
+    category: information_disclosure
+    target: staging.paleon-lab-health.com/uploads/
+    title: Directory listing enabled on staging /uploads/
+    description: >
+      The web server allows directory listing on the /uploads/ directory, 
+      revealing internal files (PATIENT-DEMO-RECORD.txt, etc.).
+    severity: high
+    claim_strength: observed
+    evidence_hint: >
+      curl -skK "https://staging.paleon-lab-health.com/uploads/" | grep "Index of"
+
+  # E. Outdated / EOL Component Disclosure
+  - id: SITE2-008
+    category: http_security
+    target: staging.paleon-lab-health.com
+    title: Missing security headers on staging
+    description: >
+      Staging site does not return modern security headers (HSTS, CSP, X-Frame-Options).
+    severity: medium
+    claim_strength: observed
+    evidence_hint: >
+      curl -sKI "https://staging.paleon-lab-health.com"
+
+  - id: SITE2-009
+    category: software_version
+    target: staging.paleon-lab-health.com
+    title: Outdated/EOL component detected
+    description: >
+      Outdated/EOL components are disclosed in HTTP response headers
+      (X-Powered-By: PHP/5.6.40, Server: Apache/2.2.8).
+    severity: medium
+    claim_strength: inferred
+    evidence_hint: >
+      curl -sKI "https://staging.paleon-lab-health.com" | grep "Apache"
+
+must_not_flag:
+  - id: SITE2-MNF-001
+    category: tls
+    target: paleon-lab-health.com
+    description: Main site has valid matching certificate
+    rationale: >
+      The main site domain should present a legitimate, matching, and 
+      up-to-date Let's Encrypt certificate or equivalent control state.
+  
+  - id: SITE2-MNF-002
+    category: http_security
+    target: paleon-lab-health.com
+    description: Main site has proper security headers
+    rationale: >
+      The main site sets HSTS, CSP, X-Frame-Options, and other expected headers.
+      
+  - id: SITE2-MNF-003
+    category: information_disclosure
+    target: paleon-lab-health.com
+    description: Main site should not have directory listing
+    rationale: >
+      autoindex is explicitly set to off on the main site.
+      
+  - id: SITE2-MNF-004
+    category: software_version
+    target: paleon-lab-health.com
+    description: Main site should not show outdated versions
+    rationale: >
+      server_tokens is off and no artificial version headers are set
+      on the main control host.
+      
+  - id: SITE2-MNF-005
+    category: vulnerability
+    target: staging.paleon-lab-health.com
+    description: Outdated version should NOT be flagged as confirmed exploitable CVE
+    rationale: >
+      The scanner only observes an outdated Server header By design, this is 
+      simply version disclosure. There is no confirmed RCE, hence it must be
+      classified as Component Disclosure/runtime_version, not a confirmed specific CVE.

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staging | Prescriptions</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-inner">
+      <h1>CareBridge Patient Portal <span class="env-badge">STAGING ENVIRONMENT</span></h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="notice"><strong>System Notice:</strong> This is a staging environment. Database sync last occurred on 2026-08-15.</div>
+
+    <div class="nav">
+      <a href="/">Dashboard</a>
+      <a href="/appointments/">Appointments</a>
+      <a href="/prescriptions/">Prescriptions</a>
+      <a href="/uploads/">File Access (Debug)</a>
+    </div>
+
+    <div class="patient-summary">
+      <div><strong>Patient ID</strong>PATIENT-20481</div>
+      <div><strong>Medication</strong>Simvastatin 20mg</div>
+      <div><strong>Review date</strong>2026-09-15</div>
+      <div><strong>Pharmacy</strong>Northside Pharmacy</div>
+    </div>
+
+    <section class="panel">
+      <h2>Prescription status</h2>
+      <table>
+        <thead>
+          <tr><th>Item</th><th>Dosage</th><th>Status</th><th>Last issued</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Simvastatin</td><td>20mg once daily</td><td><span class="status-ok">Active</span></td><td>2026-08-20</td></tr>
+          <tr><td>Vitamin D</td><td>1000iu daily</td><td><span class="status-pending">Awaiting review</span></td><td>2026-08-03</td></tr>
+          <tr><td>Ibuprofen</td><td>200mg PRN</td><td><span class="status-ok">Dispensed</span></td><td>2026-07-25</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="footer">
+      CareBridge Health • Staging System • 1.2.4-build99<br>
+      <a href="/uploads/">Internal Document Repository</a>
+    </div>
+  </div>
+</body>
+</html>
